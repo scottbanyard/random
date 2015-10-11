@@ -5,7 +5,7 @@
 #include <string.h>
 #define MAX 500
 
-void repeatPassword(char password[]);
+void repeatPassword(char password[], int n);
 void success(char password[]);
 
 void createPassword() {
@@ -28,22 +28,22 @@ void createPassword() {
 	printf("Enter your chosen password: ");
 	scanf("%s", password);
 
-	repeatPassword(password);
+	repeatPassword(password, n);
 }
 
-void repeatPassword(char password[]) {
-	char repeat[MAX];
+void repeatPassword(char password[], int n) {
+	char repeat[n-1];
 	char p;
 	int i = 0;
 
 	printf("Please repeat your password: ");
 	scanf("%s", repeat);
-
+	
 	// checks if repeated password is the same
-	if (strcmp(repeat, password)==1) {
-		printf("You have entered two passwords that aren't matching.\nEnding program.\n");
-	} else {
+	if (strcmp(repeat, password)==0) {
 		success(password);
+	} else {
+		printf("You have entered two passwords that aren't matching.\nEnding program.\n");
 	}
 
 }
